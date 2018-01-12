@@ -3,8 +3,8 @@
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 
-import path from "path";
-import url from "url";
+import * as path from "path";
+import * as url from "url";
 import { app, Menu } from "electron";
 import { devMenuTemplate } from "./menu/dev_menu_template";
 import { editMenuTemplate } from "./menu/edit_menu_template";
@@ -12,10 +12,11 @@ import createWindow from "./helpers/window";
 
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
-import env from "env";
+// "require" works around webpack alias not being visible by ts
+const env = require("env");
 
 const setApplicationMenu = () => {
-  const menus = [editMenuTemplate];
+  const menus: any[] = [editMenuTemplate];
   if (env.name !== "production") {
     menus.push(devMenuTemplate);
   }

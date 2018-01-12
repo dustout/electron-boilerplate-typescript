@@ -42,7 +42,8 @@ textEditingMenu.append(paste);
 document.addEventListener(
   "contextmenu",
   event => {
-    switch (event.target.nodeName) {
+    // The cast is required due to https://github.com/Microsoft/TypeScript/issues/299#issuecomment-168538829
+    switch ((<HTMLElement>event.target).nodeName) {
       case "TEXTAREA":
       case "INPUT":
         event.preventDefault();

@@ -1,14 +1,16 @@
-# electron-boilerplate
+# electron-boilerplate-typescript
 
 A minimalistic boilerplate for [Electron runtime](http://electron.atom.io). Tested on Windows, macOS and Linux.  
 
 This project contains only bare minimum of dependencies, to provide you with nice development environment. Doesn't impose on you any frontend technologies, so you can pick your favourite.
 
+This is a fork of [szwacz/electron-boilerplate](https://github.com/szwacz/electron-boilerplate) demonstrating its TypeScript support (as discussed [here](https://github.com/szwacz/electron-boilerplate/issues/170)).
+
 # Quick start
 
 Make sure you have [Node.js](https://nodejs.org) installed, then type the following commands known to every Node developer...
 ```
-git clone https://github.com/szwacz/electron-boilerplate.git
+git clone https://github.com/oparisy/electron-boilerplate.git
 cd electron-boilerplate
 npm install
 npm start
@@ -47,7 +49,7 @@ Build process uses [Webpack](https://webpack.js.org/). The entry-points are `src
 
 Environmental variables are done in a bit different way (not via `process.env`). Env files are plain JSONs in `config` directory, and build process dynamically links one of them as an `env` module. You can import it wherever in code you need access to the environment.
 ```js
-import env from "env";
+const env = require("env");
 console.log(env.name);
 ```
 

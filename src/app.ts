@@ -1,17 +1,19 @@
 import "./stylesheets/main.css";
 
 // Small helpers you might want to keep
-import "./helpers/context_menu.js";
-import "./helpers/external_links.js";
+import "./helpers/context_menu.ts";
+import "./helpers/external_links.ts";
 
 // ----------------------------------------------------------------------------
 // Everything below is just to show you how it works. You can delete all of it.
 // ----------------------------------------------------------------------------
 
 import { remote } from "electron";
-import jetpack from "fs-jetpack";
+import * as jetpack from "fs-jetpack";
 import { greet } from "./hello_world/hello_world";
-import env from "env";
+
+// "require" works around webpack alias not being visible by ts
+const env = require("env");
 
 const app = remote.app;
 const appDir = jetpack.cwd(app.getAppPath());
@@ -26,10 +28,15 @@ const osMap = {
   linux: "Linux"
 };
 
-document.querySelector("#app").style.display = "block";
-document.querySelector("#greet").innerHTML = greet();
-document.querySelector("#os").innerHTML = osMap[process.platform];
-document.querySelector("#author").innerHTML = manifest.author;
-document.querySelector("#env").innerHTML = env.name;
-document.querySelector("#electron-version").innerHTML =
+query("#app").style.display = "block";
+query("#greet").innerHTML = greet();
+query("#os").innerHTML = osMap[process.platform];
+query("#author").innerHTML = manifest.author;
+query("#env").innerHTML = env.name;
+query("#electron-version").innerHTML =
   process.versions.electron;
+
+/** Centralize cast (see https://github.com/Microsoft/TypeScript/issues/3263) */
+function query(selector): HTMLElement {
+  return document.querySelector(selector)
+}

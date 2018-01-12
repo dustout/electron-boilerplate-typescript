@@ -4,7 +4,7 @@
 // instances of it and give each different name.
 
 import { app, BrowserWindow, screen } from "electron";
-import jetpack from "fs-jetpack";
+import * as jetpack from "fs-jetpack";
 
 export default (name, options) => {
   const userDataDir = jetpack.cwd(app.getPath("userData"));

@@ -14,7 +14,8 @@ export const devMenuTemplate = {
       label: "Toggle DevTools",
       accelerator: "Alt+CmdOrCtrl+I",
       click: () => {
-        BrowserWindow.getFocusedWindow().toggleDevTools();
+        // ".webContents" required due to https://github.com/electron/electron/issues/7832
+        BrowserWindow.getFocusedWindow().webContents.toggleDevTools();
       }
     },
     {
