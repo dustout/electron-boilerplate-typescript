@@ -1,17 +1,17 @@
 # electron-boilerplate-typescript
 
+*This is a fork of [szwacz/electron-boilerplate](https://github.com/szwacz/electron-boilerplate) demonstrating its TypeScript support (as discussed [here](https://github.com/szwacz/electron-boilerplate/issues/170)).*
+
 A minimalistic boilerplate for [Electron runtime](http://electron.atom.io). Tested on Windows, macOS and Linux.  
 
 This project contains only bare minimum of dependencies, to provide you with nice development environment. Doesn't impose on you any frontend technologies, so you can pick your favourite.
-
-This is a fork of [szwacz/electron-boilerplate](https://github.com/szwacz/electron-boilerplate) demonstrating its TypeScript support (as discussed [here](https://github.com/szwacz/electron-boilerplate/issues/170)).
 
 # Quick start
 
 Make sure you have [Node.js](https://nodejs.org) installed, then type the following commands known to every Node developer...
 ```
-git clone https://github.com/oparisy/electron-boilerplate.git
-cd electron-boilerplate
+git clone -b typescript-port https://github.com/oparisy/electron-boilerplate-typescript.git
+cd electron-boilerplate-typescript
 npm install
 npm start
 ```
