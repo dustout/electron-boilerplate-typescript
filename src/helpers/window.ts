@@ -6,10 +6,10 @@
 import { app, BrowserWindow, screen } from "electron";
 import * as jetpack from "fs-jetpack";
 
-export default (name, options) => {
+export default (name: string, options: BrowserWindowConstructorOptions) => {
   const userDataDir = jetpack.cwd(app.getPath("userData"));
   const stateStoreFile = `window-state-${name}.json`;
-  const defaultSize = {
+  const defaultSize: any = {
     width: options.width,
     height: options.height
   };
